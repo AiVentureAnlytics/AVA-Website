@@ -1,0 +1,193 @@
+/* FONDO GENERAL */
+body {
+  background-color: white !important;
+}
+
+  
+  /* INTRO SERVICIOS */
+  .intro-servicios {
+    max-width: 1000px;
+    margin: 130px auto 60px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .intro-servicios h1 {
+    font-size: 2.5rem;
+    color: #7d2181;
+    margin-bottom: 20px;
+  }
+  
+  .intro-servicios p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* SERVICIOS */
+  .servicios-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 50px 0;
+  }
+  
+  .servicio-card {
+    background-color: #7d2181;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 300px;
+    padding: 40px 20px;
+    text-align: center;
+    transition: transform 0.4s ease;
+    color: white;
+  }
+  
+  .servicio-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  }
+  
+  .servicio-card img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .servicio-card h3 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .servicio-card p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* CLIENTES */
+  .clientes {
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .clientes h2 {
+    color: #7d2181;
+    margin-bottom: 30px;
+  }
+  
+  .clientes p {
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1rem;
+  }
+  
+  /* RAZONES */
+  .razones {
+    background-color: #FAF9F6;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .razones h2 {
+    color: #7d2181;
+    margin-bottom: 50px;
+    font-size: 2rem;
+  }
+  
+  .razones h2 span {
+    color: #4b0082;
+  }
+  
+  .razones-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .razon-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    width: 320px;
+    padding: 30px 20px;
+    transition: transform 0.3s ease;
+    text-align: left;
+  }
+  
+  .razon-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  }
+  
+  .numero {
+    font-size: 1.8rem;
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #7d2181;
+  }
+  
+  .razon-card h3 {
+    color: #7d2181;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .razon-card p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* CTA SECTION */
+  .cta {
+    text-align: center;
+    background-color: #FAF9F6;
+    padding: 80px 20px;
+    border-top: 3px solid #7d2181;
+    border-bottom: 3px solid #7d2181;
+  }
+  
+  .cta h2 {
+    font-size: 2rem;
+    color: #7d2181;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .cta p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .cta a {
+    display: inline-block;
+    background: linear-gradient(135deg, #7d2181, #4b0082);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+  }
+  
+  .cta a:hover {
+    background: #e9d5f2;
+    color: #4b0082;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
