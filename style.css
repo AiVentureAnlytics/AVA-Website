@@ -1,0 +1,347 @@
+/* RESET BÁSICO */
+/* SATOSHI FONT IMPORT */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi-Variable.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../fonts/Satoshi-VariableItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Satoshi', sans-serif;
+  background-color: white;
+  color: #333;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #7d2181;
+  padding: 15px 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* LOGO */
+.logo-container {
+  display: flex;
+  align-items: center; /* CENTRA verticalmente logo + texto */
+}
+
+.logo {
+  width: 36px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* NAVIGATION */
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: transform 0.3s, color 0.3s;
+  padding: 8px 12px;
+}
+
+.nav ul li a:hover {
+  color: #e9d5f2;
+  transform: scale(1.1);
+}
+
+
+/* LOGIN BUTTON */
+.btn-login {
+  position: absolute;
+  right: 0;
+  background-color: white;
+  color: #7d2181 !important;
+  padding: 20px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  border: px solid #7d2181;
+  transition: all 0.4s ease;
+  margin-right: 40px;
+}
+
+.btn-login:hover {
+  background-color: #e9d5f2;
+  color: #4b0082 !important;
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 180px 20px 60px 20px;
+  background-color: white;
+}
+
+.hero h1 {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 2.9rem;
+  color: #7d2181;
+  margin-bottom: 20px;
+}
+
+
+.hero p {
+  font-size: 1.3rem;
+  color: #7d2181;
+  margin-bottom: 40px;
+}
+
+.btn-soluciones {
+  background: linear-gradient(135deg, #7d2181, #4b0082);
+  color: white;
+  padding: 13px 80px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.4s ease;
+}
+
+.btn-soluciones:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* BANNER */
+.banner {
+  text-align: center;
+  margin: 20px 0;
+  background-color: white;
+  padding: 20px 0;
+}
+
+.banner-img {
+  width: 70%;
+  display: block;
+  margin: 0px auto;
+  border-radius: 90px;
+}
+
+/* INTRO */
+.intro {
+  text-align: center;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 50px 20px;
+  background-color: #7d2181;
+  border-radius: 12px;
+}
+
+.intro h2 {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.intro p {
+  font-size: 1.3rem;
+  color: white;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* BENEFICIOS - CARRUSEL */
+.beneficios {
+  text-align: center;
+  padding: 190px 80px;
+  background: url('../img/imagen.background.jpg') no-repeat right bottom; /* CAMBIO aquí */
+  background-size: contain; /* Ajusta el tamaño */
+  background-attachment: fixed; /* Hace que la imagen quede fija al hacer scroll */
+  background-color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* Fondo blanco semi-transparente para suavizar */
+.beneficios::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0); /* Blanco con opacidad */
+  z-index: 0;
+}
+
+/* Imagen robot derecha */
+.beneficios::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 150%;
+  width: 500px;
+  background: url('../img/robot-blanco-getty-1.jpg') no-repeat right center;
+  background-size: 80%;
+  opacity: 0.95;
+  z-index: 0;
+}
+
+/* Mantener textos y carrusel encima */
+.beneficios h2, .carousel-container {
+  position: relative;
+  z-index: 2;
+}
+
+.beneficios h2 {
+  font-size: 1.8rem;
+  color: #7d2181;
+  margin-bottom: 50px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  margin-left: calc(50% - 50vw); /* Centra correctamente */
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 300px;
+  text-align: center;
+  margin: 0 30px;
+  padding: 30px 20px;
+  background: white;
+  border: 2px solid #7d2181;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.carousel-item:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.carousel-item .emoji {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #7d2181;
+}
+
+.carousel-item p {
+  font-size: 1rem;
+  color: #7d2181;
+  line-height: 1.4;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+
+
+/* FOOTER */
+.footer {
+  background-color: #7d2181;
+  color: white;
+  padding: 40px 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: -10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  width: 50px;
+}
+
+.footer-brand,
+.footer-slogan {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.divider {
+  color: white;
+  font-size: 2rem;
+}
+
+.contact p {
+  margin: 5px 0;
+  text-align: center;
+}
+
+.social {
+  margin-left: -50px; /* Ajusta el valor según lo necesites */
+}
+
+.social a {
+  color: white;
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+.social a:hover {
+  color: #e9d5f2;
+}
