@@ -1,0 +1,132 @@
+/* MAIN LAYOUT */
+.contact-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 80px 10%;
+    background-color: #fff;
+  }
+  
+  /* LEFT INFO */
+  .contact-left {
+    flex: 1 1 300px;
+    padding: 30px;
+    color: #4b0082;
+  }
+  
+  .contact-left h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .contact-left p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  
+  .contact-left ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .contact-left li {
+    margin-bottom: 10px;
+  }
+  
+  .social-icons a {
+    color: #7d2181;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    text-decoration: underline;
+  }
+  
+  /* RIGHT FORM */
+  .contact-right {
+    flex: 1 1 400px;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #7d2181;
+    border-radius: 8px;
+    background: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f9f9f9;
+    padding: 0 5px;
+    color: #7d2181;
+    transition: 0.3s ease;
+    pointer-events: none;
+  }
+  
+  input:focus + label,
+  textarea:focus + label,
+  input:not(:placeholder-shown) + label,
+  textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 0.85rem;
+    color: #4b0082;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  .btn-submit {
+    background: linear-gradient(135deg, #7d2181, #4b0082);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    transform: scale(1.05);
+    background: #4b0082;
+  }
+  
+  #form-success {
+    color: green;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .contact-main {
+      flex-direction: column;
+    }
+    .contact-left, .contact-right {
+      flex: 1 1 100%;
+    }
+  }
+  
