@@ -350,13 +350,18 @@ body {
 
 /* Estilo para el botón hamburguesa */
 .menu-toggle {
-  display: none;
+  display: block;
   background: none;
   border: none;
   color: white;
   font-size: 2rem;
   cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px; /* Aquí lo mandamos a la derecha */
+  z-index: 1001; /* Para que quede arriba del menú */
 }
+
 
 /* Mobile First: Ajustes para pantallas menores a 768px */
 @media (max-width: 768px) {
