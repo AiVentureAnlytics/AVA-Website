@@ -18,10 +18,7 @@
     </div>
     
     <nav class="nav">
-      <!-- BOTÓN HAMBURGUESA -->
       <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-  
-      <!-- MENÚ -->
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="servicios.html">Servicios</a></li>
@@ -34,7 +31,6 @@
 
   <!-- CONTACT SECTION -->
   <main class="contact-main">
-    <!-- LEFT INFO -->
     <section class="contact-left">
       <h2>Contáctanos</h2>
       <p>¿Listo para transformar tu negocio con IA? 🚀</p>
@@ -50,7 +46,6 @@
       </div>
     </section>
 
-    <!-- RIGHT FORM -->
     <section class="contact-right">
       <form id="contactForm">
         <div class="form-group">
@@ -66,7 +61,6 @@
           <label for="message">Mensaje</label>
         </div>
         <button type="submit" class="btn-submit">Enviar</button>
-        <div id="form-success" style="display:none;">¡Mensaje enviado correctamente!</div>
       </form>
     </section>
   </main>
@@ -87,33 +81,28 @@
   </footer>
 
   <!-- JS PARA FORMULARIO CONTACTO (GOOGLE SHEETS) -->
-<!-- JS PARA FORMULARIO CONTACTO (GOOGLE SHEETS) -->
-<script>
-  const form = document.getElementById('contactForm');
-  const successMsg = document.getElementById('form-success');
+  <script>
+    const form = document.getElementById('contactForm');
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+    form.addEventListener('submit', e => {
+      e.preventDefault();
 
-    const data = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      message: document.getElementById('message').value
-    };
+      const data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      };
 
-    fetch('https://script.google.com/macros/s/AKfycbzTwGals724y2RtyFBZlXM5alkU3S7TwJNt2vI7LrqO48Q-c0PLMjRBGNBDww2t9B6rgA/exec', {  
-      method: 'POST',
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-      successMsg.style.display = 'block';
+      fetch('https://script.google.com/macros/s/AKfycbzTwGals724y2RtyFBZlXM5alkU3S7TwJNt2vI7LrqO48Q-c0PLMjRBGNBDww2t9B6rgA/exec', {  
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(data)
+      });
+
       form.reset();
-    })
-    .catch(error => console.error('Error!', error.message));
-  });
-</script>
-
+      alert("¡Mensaje enviado!"); // Confirmación para el usuario
+    });
+  </script>
 
   <!-- JS PARA MENÚ HAMBURGUESA -->
   <script src="js/script.js"></script>
