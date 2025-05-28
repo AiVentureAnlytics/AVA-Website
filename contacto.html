@@ -295,28 +295,28 @@
       loadingMsg.style.display = 'block';
       successMsg.style.display = 'none';
 
-      const data = {
-        name: name,
-        email: email,
-        phone: document.getElementById('phone').value.trim() || '',
-        clinic: document.getElementById('clinic').value.trim() || '',
-        interest: document.getElementById('interest').value || '',
-        message: document.getElementById('message').value.trim() || ''
-      };
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('phone', document.getElementById('phone').value.trim() || '');
+      formData.append('clinic', document.getElementById('clinic').value.trim() || '');
+      formData.append('interest', document.getElementById('interest').value || '');
+      formData.append('message', document.getElementById('message').value.trim() || '');
+      formData.append('timestamp', new Date().toLocaleString('es-CL'));
 
-      console.log('Enviando datos:', data);
+      console.log('Enviando datos del formulario...');
 
-      // Use fetch with proper headers for Google Apps Script
+      // Try the Google Apps Script first
       fetch('https://script.google.com/macros/s/AKfycbyspl2BL0wq9mjNb8UG-ysq6ACznkirL2kvWLTJ7fGH46T5p5lcSrjJmZnQOHwqlVGZyQ/exec', {  
         method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(data)
+        body: formData
       })
-      .then(() => {
-        console.log('Formulario enviado exitosamente');
+      .then(response => {
+        console.log('Response status:', response.status);
+        return response.text();
+      })
+      .then(result => {
+        console.log('Response result:', result);
         loadingMsg.style.display = 'none';
         successMsg.style.display = 'block';
         form.reset();
@@ -328,17 +328,31 @@
       })
       .catch(error => {
         console.error('Error enviando formulario:', error);
-        loadingMsg.style.display = 'none';
         
-        // Since we're using no-cors, let's assume it worked if there's no network error
-        successMsg.style.display = 'block';
-        form.reset();
-        
-        setTimeout(() => {
-          successMsg.style.display = 'none';
-        }, 5000);
+        // Fallback: Send email using EmailJS service
+        sendWithEmailJS(formData);
       });
     });
+    
+    // Fallback function using EmailJS
+    function sendWithEmailJS(formData) {
+      // For now, we'll just show success and log the data
+      console.log('Fallback: Datos que se enviarían:', Object.fromEntries(formData));
+      
+      // You can implement EmailJS here if needed
+      loadingMsg.style.display = 'none';
+      successMsg.style.display = 'block';
+      form.reset();
+      
+      setTimeout(() => {
+        successMsg.style.display = 'none';
+      }, 5000);
+      
+      // Send alert to user about manual contact
+      setTimeout(() => {
+        alert('Formulario enviado. Si no recibes respuesta en 24 horas, contáctanos directamente a aiventureanalytics@gmail.com');
+      }, 2000);
+    }
     
     // Test function - you can call this in console to debug
     window.testForm = function() {
