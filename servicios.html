@@ -6,102 +6,191 @@
   <title>Soluciones - AI Venture Analytics</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/servicios.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-
   <!-- HEADER -->
-<header class="header">
-  <div class="logo-container">
-    <img src="img/AI_VENTURE_ANALYTICS-removebg-preview.png" alt="Logo AVA" class="logo">
-    <span class="logo-text">AVA</span>
-  </div>
-  
-  <nav class="nav">
-    <!-- BOTÓN HAMBURGUESA -->
-    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+  <header class="header">
+    <div class="logo-container">
+      <img src="img/AI_VENTURE_ANALYTICS-removebg-preview.png" alt="Logo AVA" class="logo">
+      <span class="logo-text">AVA</span>
+    </div>
+    
+    <nav class="nav">
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="beneficios.html">Beneficios IA</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="http://146.190.49.33:3006/login" class="btn-login">Log in</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- MENÚ -->
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="beneficios.html">Beneficios IA</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="http://146.190.49.33:3006/login" class="btn-login">Log in</a></li>
-    </ul>
-  </nav>
-</header>
-
-  <!-- INTRO SERVICIOS -->
-  <section class="intro-servicios">
-    <div class="intro-content">
-      <h1>Soluciones AI Venture Analytics ⚙️✨</h1>
-      <p>En AI Venture Analytics optimizamos tus procesos, aumentamos tus ventas 📈 y mejoramos la experiencia de tus clientes 🌟 con soluciones inteligentes de IA y automatización.</p>
-      <p>🔍 Desde startups hasta grandes empresas, adaptamos cada tecnología a tus objetivos, garantizando eficiencia y resultados rápidos.</p>
-      <p>💡 Transformamos tu negocio, simplificamos la gestión y te llevamos al siguiente nivel 🚀.</p>
+  <!-- HERO SECTION -->
+  <section class="hero-servicios">
+    <div class="hero-content">
+      <div class="hero-badge">Soluciones de IA</div>
+      <h1>Transforma tu Negocio con <span class="gradient-text">Inteligencia Artificial</span></h1>
+      <p class="hero-subtitle">Optimizamos tus procesos, aumentamos tus ventas y mejoramos la experiencia de tus clientes con soluciones inteligentes de IA y automatización.</p>
+      <div class="hero-features">
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="feature-text">
+            <span class="feature-title">IA Avanzada</span>
+            <span class="feature-desc">Tecnología de última generación</span>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="feature-text">
+            <span class="feature-title">Resultados Medibles</span>
+            <span class="feature-desc">ROI garantizado</span>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="feature-text">
+            <span class="feature-title">Implementación Rápida</span>
+            <span class="feature-desc">Resultados en semanas</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#servicios" class="btn-primary">Explorar Soluciones</a>
+        <a href="contacto.html" class="btn-secondary">Solicitar Demo</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">40+</span>
+          <span class="stat-label">Empresas Satisfechas</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">95%</span>
+          <span class="stat-label">Eficiencia Mejorada</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Soporte Disponible</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
     </div>
   </section>
 
   <!-- SERVICIOS -->
   <section class="servicios">
     <div class="servicios-container">
-
-      <!-- CARD -->
       <article class="servicio-card">
-        <img src="img/servicio-contenido-ai.png" alt="Generación de Contenido con AI">
+        <div class="card-icon">
+          <i class="fas fa-pen-fancy"></i>
+        </div>
         <h3>Generación de Contenido con AI</h3>
         <p>Creación automática de contenido para redes sociales, blogs, emails y anuncios. Personalización avanzada para cada cliente.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check"></i> Contenido optimizado para SEO</li>
+          <li><i class="fas fa-check"></i> Personalización por audiencia</li>
+          <li><i class="fas fa-check"></i> Generación multi-plataforma</li>
+        </ul>
+        <a href="contacto.html" class="card-cta">Solicitar Demo</a>
       </article>
 
       <article class="servicio-card">
-        <img src="img/servicio-crm-ai.png" alt="AI para Atención al Cliente CRM">
+        <div class="card-icon">
+          <i class="fas fa-headset"></i>
+        </div>
         <h3>AI para Atención al Cliente (CRM)</h3>
         <p>Respuesta automática vía WhatsApp y web. Seguimiento inteligente de clientes. Integración con WhatsApp API.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check"></i> Atención 24/7</li>
+          <li><i class="fas fa-check"></i> Integración WhatsApp</li>
+          <li><i class="fas fa-check"></i> Análisis de conversaciones</li>
+        </ul>
+        <a href="contacto.html" class="card-cta">Solicitar Demo</a>
       </article>
 
       <article class="servicio-card">
-        <img src="img/servicio-automatizacion.png" alt="Automatización de Procesos">
+        <div class="card-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
         <h3>Automatización de Procesos</h3>
         <p>Integración con Google Sheets, Mailchimp, Shopify. Automatización de facturas, reportes y onboarding.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check"></i> Integración multi-plataforma</li>
+          <li><i class="fas fa-check"></i> Automatización de tareas</li>
+          <li><i class="fas fa-check"></i> Reportes automáticos</li>
+        </ul>
+        <a href="contacto.html" class="card-cta">Solicitar Demo</a>
       </article>
 
       <article class="servicio-card">
-        <img src="img/servicio-analisis-predictivo.png" alt="Análisis Predictivo">
+        <div class="card-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
         <h3>Análisis Predictivo</h3>
         <p>Predicción de demanda y segmentación avanzada. Reportes automáticos con insights estratégicos para tu negocio.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check"></i> Predicción de tendencias</li>
+          <li><i class="fas fa-check"></i> Análisis de comportamiento</li>
+          <li><i class="fas fa-check"></i> Insights en tiempo real</li>
+        </ul>
+        <a href="contacto.html" class="card-cta">Solicitar Demo</a>
       </article>
 
       <article class="servicio-card">
-        <img src="img/servicio-ecommerce-ai.png" alt="Optimización eCommerce con AI">
+        <div class="card-icon">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
         <h3>Optimización eCommerce con AI</h3>
         <p>Recomendaciones inteligentes, análisis de carritos abandonados y automatización de retargeting.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check"></i> Recomendaciones personalizadas</li>
+          <li><i class="fas fa-check"></i> Reducción de abandonos</li>
+          <li><i class="fas fa-check"></i> Optimización de conversión</li>
+        </ul>
+        <a href="contacto.html" class="card-cta">Solicitar Demo</a>
       </article>
 
       <article class="servicio-card">
-        <img src="img/servicio-marketing-ai.png" alt="Automatización de Marketing">
+        <div class="card-icon">
+          <i class="fas fa-bullhorn"></i>
+        </div>
         <h3>Automatización de Marketing</h3>
         <p>Campañas automatizadas, segmentación dinámica, personalización de emails y anuncios publicitarios en tiempo real.</p>
+        <ul class="card-features">
+          <li><i class="fas fa-check"></i> Campañas automatizadas</li>
+          <li><i class="fas fa-check"></i> Segmentación avanzada</li>
+          <li><i class="fas fa-check"></i> ROI optimizado</li>
+        </ul>
+        <a href="contacto.html" class="card-cta">Solicitar Demo</a>
       </article>
-
     </div>
   </section>
-
- 
-  
-
-  <section class="clientes">
-    <div class="clientes-container">
-      <h2>+40 Empresas ya confían en nosotros</h2>
-      <p>Contamos con una red de más de 40 clientes satisfechos que utilizan nuestras soluciones para mejorar sus operaciones y atención al cliente.</p>
-    </div>
-  </section>
-  
 
   <!-- CTA -->
   <section class="cta">
-    <h2>¿Listo para transformar tu negocio con AI?</h2>
-    <p>Solicita una demo personalizada hoy mismo y déjanos mostrarte cómo automatizamos tu éxito.</p>
-    <a href="contacto.html">Solicita tu Demo</a>
+    <div class="cta-content">
+      <h2>¿Listo para transformar tu negocio con AI?</h2>
+      <p>Solicita una demo personalizada hoy mismo y déjanos mostrarte cómo automatizamos tu éxito.</p>
+      <div class="cta-buttons">
+        <a href="contacto.html" class="btn-primary">Solicitar Demo</a>
+        <a href="contacto.html" class="btn-secondary">Contactar Asesor</a>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -114,16 +203,15 @@
         <h3 class="footer-slogan">Automatizar para Humanizar</h3>
       </div>
       <div class="contact">
-        <p>📧 aiventureanalytics@gmail.com</p>
-
+        <p><i class="fas fa-envelope"></i> aiventureanalytics@gmail.com</p>
       </div>
       <div class="social">
-        <a href="#">Instagram</a> | <a href="#">Fiverr</a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-fiverr"></i></a>
       </div>
     </div>
   </footer>
- <script src="js/script.js"></script>
-  
+  <script src="js/script.js"></script>
 </body>
 </html>
 
