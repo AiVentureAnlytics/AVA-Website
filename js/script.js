@@ -83,7 +83,8 @@ animateElements.forEach(el => {
   observer.observe(el);
 });
 
-// Counter animation for stats
+// Counter animation for stats - COMENTADO PARA EVITAR CONFLICTOS
+/*
 const animateCounters = () => {
   const counters = document.querySelectorAll('.stat-number');
   
@@ -126,8 +127,10 @@ const animateCounters = () => {
     }, 30);
   });
 };
+*/
 
-// Trigger counter animation when stats section is visible
+// Trigger counter animation when stats section is visible - COMENTADO
+/*
 const statsSection = document.querySelector('.hero-stats');
 if (statsSection) {
   const statsObserver = new IntersectionObserver((entries) => {
@@ -141,6 +144,7 @@ if (statsSection) {
   
   statsObserver.observe(statsSection);
 }
+*/
 
 // Floating cards animation enhancement
 const floatingCards = document.querySelectorAll('.floating-card');
@@ -187,4 +191,155 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.opacity = '1';
     document.body.style.transition = 'opacity 0.5s ease';
   }, 100);
+});
+
+// NUEVA FUNCIÓN SIMPLE PARA ANIMAR NÚMEROS - GARANTIZADA
+function startNumberAnimation() {
+  // Buscar todos los elementos con data-target
+  const numberElements = document.querySelectorAll('[data-target]');
+  
+  numberElements.forEach(element => {
+    const finalNumber = parseInt(element.getAttribute('data-target'));
+    
+    if (finalNumber && finalNumber > 0) {
+      let currentNumber = 0;
+      const increment = Math.ceil(finalNumber / 30); // 30 pasos
+      
+      // Función que actualiza el número
+      const updateNumber = () => {
+        currentNumber += increment;
+        
+        if (currentNumber >= finalNumber) {
+          element.textContent = finalNumber;
+        } else {
+          element.textContent = currentNumber;
+          setTimeout(updateNumber, 50); // Cada 50ms
+        }
+      };
+      
+      // Iniciar la animación
+      element.textContent = '0';
+      setTimeout(updateNumber, 100);
+    }
+  });
+}
+
+// NUEVA FUNCIÓN SIMPLE PARA BARRAS DE PROGRESO
+function startProgressAnimation() {
+  const progressBars = document.querySelectorAll('.progress-bar');
+  console.log('🔄 Iniciando animación de barras, encontradas:', progressBars.length);
+  
+  progressBars.forEach((bar, index) => {
+    const targetWidth = bar.getAttribute('data-width');
+    console.log(`Barra ${index + 1}: target width = ${targetWidth}%`);
+    
+    if (targetWidth) {
+      // Resetear inmediatamente
+      bar.style.width = '0%';
+      bar.style.transition = 'none'; // Quitar transición temporalmente
+      
+      // Forzar reflow
+      bar.offsetHeight;
+      
+      // Restaurar transición y animar
+      setTimeout(() => {
+        bar.style.transition = 'width 2s cubic-bezier(0.4, 0, 0.2, 1)';
+        bar.style.width = targetWidth + '%';
+        console.log(`✅ Barra ${index + 1} animada a ${targetWidth}%`);
+      }, 100 + (index * 200)); // Delay escalonado para cada barra
+    }
+  });
+}
+
+// OBSERVER SIMPLE Y DIRECTO
+function initResultsAnimations() {
+  const resultsSection = document.querySelector('.ava-results');
+  
+  if (!resultsSection) {
+    console.log('No se encontró la sección .ava-results');
+    return;
+  }
+  
+  let animationTriggered = false;
+  
+  // Crear el observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animationTriggered) {
+        animationTriggered = true;
+        console.log('¡Sección visible! Iniciando animaciones...');
+        
+        // Iniciar animaciones con timing mejorado
+        startNumberAnimation();
+        
+        // Iniciar barras después de que los números empiecen
+        setTimeout(() => {
+          startProgressAnimation();
+        }, 800);
+        
+        // Desconectar observer
+        observer.unobserve(resultsSection);
+      }
+    });
+  }, {
+    threshold: 0.3 // Reducir threshold para activar antes
+  });
+  
+  observer.observe(resultsSection);
+  console.log('Observer configurado para .ava-results');
+}
+
+// FUNCIÓN DE PRUEBA MANUAL (para debug)
+function testAnimations() {
+  console.log('🧪 Ejecutando animaciones manualmente...');
+  
+  // Verificar elementos
+  const numbers = document.querySelectorAll('[data-target]');
+  const bars = document.querySelectorAll('.progress-bar');
+  
+  console.log('Números encontrados:', numbers.length);
+  console.log('Barras encontradas:', bars.length);
+  
+  // Ejecutar animaciones
+  startNumberAnimation();
+  
+  setTimeout(() => {
+    startProgressAnimation();
+  }, 1000);
+  
+  console.log('✅ Animaciones iniciadas manualmente');
+}
+
+// Hacer la función de prueba global para poder llamarla desde la consola
+window.testAnimations = testAnimations;
+
+// INICIALIZACIÓN FINAL - GARANTIZADA
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('🚀 Inicializando animaciones de resultados...');
+  
+  // Verificar elementos
+  const resultsSection = document.querySelector('.ava-results');
+  const numberElements = document.querySelectorAll('[data-target]');
+  const progressBars = document.querySelectorAll('.progress-bar');
+  
+  console.log('Sección encontrada:', !!resultsSection);
+  console.log('Números encontrados:', numberElements.length);
+  console.log('Barras encontradas:', progressBars.length);
+  
+  // Inicializar animaciones
+  initResultsAnimations();
+  
+  // También agregar efectos de hover a las tarjetas
+  const cards = document.querySelectorAll('.result-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.boxShadow = '0 20px 40px rgba(124, 58, 237, 0.3)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.boxShadow = '';
+    });
+  });
+  
+  console.log('✅ Configuración completada');
 });
