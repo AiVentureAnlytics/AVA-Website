@@ -1,0 +1,459 @@
+/* PRICING PAGE STYLES */
+
+/* Hero Section */
+.pricing-hero {
+  background: linear-gradient(135deg, #1E1B4B 0%, #7C3AED 70%, #A855F7 100%);
+  color: white;
+  padding: 140px 0 80px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="rgba(255,255,255,0.05)" fill-opacity="0.4"><circle cx="7" cy="7" r="7"/></g></svg>') repeat;
+  z-index: 1;
+}
+
+.pricing-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pricing-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.pricing-hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+/* Pricing Section */
+.pricing-section {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.pricing-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 16px;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.pricing-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Pricing Card */
+.pricing-card {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+}
+
+.pricing-badge {
+  background: linear-gradient(135deg, #1E1B4B 0%, #7C3AED 70%, #A855F7 100%);
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.pricing-header-card {
+  padding: 40px 40px 32px 40px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pricing-header-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 24px;
+}
+
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.currency {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #7C3AED;
+}
+
+.amount {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.period {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.pricing-additional {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin: 0 -16px;
+}
+
+.plus-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #7C3AED;
+}
+
+.additional-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.additional-text {
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+/* Features */
+.pricing-features {
+  padding: 32px 40px;
+}
+
+.pricing-features h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 24px;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 1rem;
+  color: #475569;
+}
+
+.features-list li:last-child {
+  border-bottom: none;
+}
+
+.features-list .icon {
+  width: 20px;
+  height: 20px;
+  background: #7C3AED;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.integration-disclaimer {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #92400e;
+  font-style: italic;
+}
+
+/* CTA */
+.pricing-cta {
+  padding: 32px 40px 40px 40px;
+  text-align: center;
+}
+
+.btn-pricing {
+  display: inline-block;
+  background: linear-gradient(135deg, #7C3AED 0%, #3B82F6 100%);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 16px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-pricing:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.4);
+  background: linear-gradient(135deg, #8B5CF6 0%, #60A5FA 100%);
+}
+
+.pricing-note {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Benefits Section */
+.pricing-benefits {
+  padding: 80px 0;
+  background: white;
+}
+
+.pricing-benefits h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  text-align: center;
+  margin-bottom: 60px;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+}
+
+.benefit-item {
+  text-align: center;
+  padding: 32px 24px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.benefit-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+}
+
+.benefit-item p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* FAQ Section */
+.pricing-faq {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.pricing-faq h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  text-align: center;
+  margin-bottom: 60px;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.faq-item {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+}
+
+.faq-item p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Final CTA */
+.pricing-cta-final {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #1d1d1f 0%, #374151 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7C3AED 0%, #3B82F6 100%);
+  color: white;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pricing-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .pricing-hero p {
+    font-size: 1.1rem;
+  }
+  
+  .pricing-header h2,
+  .pricing-benefits h2,
+  .pricing-faq h2,
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+  
+  .pricing-header-card {
+    padding: 32px 24px;
+  }
+  
+  .pricing-features {
+    padding: 24px;
+  }
+  
+  .pricing-cta {
+    padding: 24px;
+  }
+  
+  .amount {
+    font-size: 3rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+} 

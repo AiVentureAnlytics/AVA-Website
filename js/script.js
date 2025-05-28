@@ -343,3 +343,62 @@ document.addEventListener('DOMContentLoaded', function() {
   
   console.log('✅ Configuración completada');
 });
+
+// FLECHA INTERACTIVA DEL HERO - FUNCIONALIDAD DE SCROLL
+document.addEventListener('DOMContentLoaded', function() {
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const scrollArrow = document.querySelector('.scroll-arrow');
+  
+  if (scrollIndicator && scrollArrow) {
+    // Hacer la flecha clickeable
+    scrollIndicator.style.cursor = 'pointer';
+    scrollArrow.style.cursor = 'pointer';
+    
+    // Agregar efecto hover
+    scrollIndicator.addEventListener('mouseenter', function() {
+      scrollArrow.style.transform = 'rotate(45deg) scale(1.1)';
+      scrollArrow.style.borderColor = 'rgba(255, 255, 255, 1)';
+      scrollArrow.style.transition = 'all 0.3s ease';
+    });
+    
+    scrollIndicator.addEventListener('mouseleave', function() {
+      scrollArrow.style.transform = 'rotate(45deg) scale(1)';
+      scrollArrow.style.borderColor = 'rgba(255, 255, 255, 0.7)';
+      scrollArrow.style.transition = 'all 0.3s ease';
+    });
+    
+    // Funcionalidad de scroll al hacer clic
+    scrollIndicator.addEventListener('click', function() {
+      // Buscar la primera sección después del hero
+      const nextSection = document.querySelector('.ava-presentation');
+      
+      if (nextSection) {
+        // Scroll suave hacia la siguiente sección
+        nextSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Efecto visual al hacer clic
+        scrollArrow.style.transform = 'rotate(45deg) scale(0.9)';
+        setTimeout(() => {
+          scrollArrow.style.transform = 'rotate(45deg) scale(1)';
+        }, 150);
+      }
+    });
+    
+    // Ocultar la flecha cuando el usuario haga scroll hacia abajo
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.pageYOffset;
+      const heroHeight = document.querySelector('.hero').offsetHeight;
+      
+      if (scrollPosition > heroHeight * 0.3) {
+        scrollIndicator.style.opacity = '0';
+        scrollIndicator.style.transform = 'translateX(-50%) translateY(20px)';
+      } else {
+        scrollIndicator.style.opacity = '1';
+        scrollIndicator.style.transform = 'translateX(-50%) translateY(0)';
+      }
+    });
+  }
+});
