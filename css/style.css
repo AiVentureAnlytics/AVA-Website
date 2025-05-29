@@ -692,13 +692,13 @@ body {
   .modern-footer {
     padding: 40px 0 20px 0;
     margin-top: 60px;
-  }
+}
 
   .footer-content {
     grid-template-columns: 1fr;
     gap: 30px;
-    text-align: center;
-  }
+  text-align: center;
+}
 
   .footer-brand-section {
     max-width: none;
@@ -709,7 +709,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-  }
+}
 
   .footer-social {
     align-items: center;
@@ -725,7 +725,7 @@ body {
 @media (max-width: 480px) {
   .footer-container {
     padding: 0 15px;
-  }
+}
 
   .footer-content {
     gap: 25px;

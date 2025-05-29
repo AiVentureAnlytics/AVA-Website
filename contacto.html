@@ -35,6 +35,67 @@
   
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/contacto.css" />
+  
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      try {
+        // Inicializar EmailJS con tu Public Key
+        emailjs.init("mn9AJX8gL7s3xiuu0");
+        console.log('EmailJS inicializado correctamente');
+      } catch (error) {
+        console.error('Error al inicializar EmailJS:', error);
+      }
+    })();
+  </script>
+  
+  <!-- Estilos adicionales para mensajes de formulario -->
+  <style>
+    .error-message {
+      display: none;
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+      text-align: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    .success-message {
+      display: none;
+      background: #ecfdf5;
+      color: #065f46;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+      text-align: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    .loading-message {
+      display: none;
+      background: #eff6ff;
+      color: #1e40af;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 16px;
+      text-align: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -91,7 +152,7 @@
                 <input type="tel" id="phone" name="phone">
               </div>
             </div>
-            
+
             <div class="form-row">
               <div class="form-group">
                 <label for="email">Email Corporativo *</label>
@@ -217,10 +278,10 @@
   <!-- FOOTER -->
   <footer class="modern-footer">
     <div class="footer-container">
-      <div class="footer-content">
+    <div class="footer-content">
         <!-- Logo y Brand -->
         <div class="footer-brand-section">
-          <div class="footer-logo-container">
+      <div class="footer-logo-container">
             <img src="img/AI_VENTURE_ANALYTICS-removebg-preview.png" alt="AI Venture Analytics - Inteligencia Artificial para Clínicas Dentales" class="footer-logo">
             <span class="footer-brand-text">AVA</span>
           </div>
@@ -273,98 +334,143 @@
     </div>
   </footer>
 
-  <!-- JS PARA FORMULARIO CONTACTO (GOOGLE SHEETS) -->
+  <!-- JS PARA FORMULARIO CONTACTO -->
   <script>
     const form = document.getElementById('contactForm');
     const successMsg = document.getElementById('form-success');
     const loadingMsg = document.getElementById('form-loading');
+    const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
+    // Función para validar el formulario
+    function validateForm(formData) {
+      const name = formData.get('name').trim();
+      const email = formData.get('email').trim();
+      const errors = [];
+
+      if (!name) {
+        errors.push('El nombre es obligatorio');
+      }
+
+      if (!email) {
+        errors.push('El email es obligatorio');
+      } else if (!EMAIL_REGEX.test(email)) {
+        errors.push('Por favor ingresa un email válido');
+      }
+
+      return errors;
+    }
+
+    // Función para mostrar errores
+    function showError(message) {
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'error-message';
+      errorDiv.style.display = 'block';
+      errorDiv.textContent = message;
       
-      // Validate required fields
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      
-      if (!name || !email) {
-        alert('Por favor completa los campos obligatorios (Nombre y Email)');
-        return;
+      // Remover error anterior si existe
+      const existingError = form.querySelector('.error-message');
+      if (existingError) {
+        existingError.remove();
       }
       
-      // Show loading
-      loadingMsg.style.display = 'block';
+      form.appendChild(errorDiv);
+      
+      // Auto-remover después de 5 segundos
+      setTimeout(() => errorDiv.remove(), 5000);
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      console.log('Formulario enviado');
+
+      // Limpiar mensajes anteriores
       successMsg.style.display = 'none';
+      loadingMsg.style.display = 'none';
+      const existingError = form.querySelector('.error-message');
+      if (existingError) {
+        existingError.remove();
+      }
 
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('phone', document.getElementById('phone').value.trim() || '');
-      formData.append('clinic', document.getElementById('clinic').value.trim() || '');
-      formData.append('interest', document.getElementById('interest').value || '');
-      formData.append('message', document.getElementById('message').value.trim() || '');
-      formData.append('timestamp', new Date().toLocaleString('es-CL'));
+      const formData = new FormData(form);
+      
+      // Log de los datos del formulario
+      console.log('Datos del formulario:', {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        clinic: formData.get('clinic'),
+        interest: formData.get('interest'),
+        message: formData.get('message')
+      });
+      
+      // Validar formulario
+      const errors = validateForm(formData);
+      if (errors.length > 0) {
+        showError(errors.join('. '));
+        return;
+      }
 
-      console.log('Enviando datos del formulario...');
+      // Mostrar loading
+      loadingMsg.style.display = 'block';
 
-      // Try the Google Apps Script first
-      fetch('https://script.google.com/macros/s/AKfycbyspl2BL0wq9mjNb8UG-ysq6ACznkirL2kvWLTJ7fGH46T5p5lcSrjJmZnQOHwqlVGZyQ/exec', {  
-        method: 'POST',
-        body: formData
-      })
-      .then(response => {
-        console.log('Response status:', response.status);
-        return response.text();
-      })
-      .then(result => {
-        console.log('Response result:', result);
+      try {
+        // Preparar datos para EmailJS
+        const templateParams = {
+          from_name: formData.get('name'),
+          from_email: formData.get('email'),
+          phone: formData.get('phone') || 'No especificado',
+          clinic: formData.get('clinic') || 'No especificado',
+          interest: formData.get('interest') || 'No especificado',
+          message: formData.get('message') || 'No especificado',
+          to_email: 'aiventureanalytics@gmail.com',
+          subject: 'Nueva Solicitud de Demo - AVA Website'
+        };
+
+        console.log('Enviando email con parámetros:', templateParams);
+
+        // Enviar email usando EmailJS
+        const response = await emailjs.send(
+          'service_us3pr61',
+          'template_79sv3hr',
+          templateParams
+        );
+
+        console.log('Respuesta de EmailJS:', response);
+
+        // Mostrar mensaje de éxito
         loadingMsg.style.display = 'none';
         successMsg.style.display = 'block';
         form.reset();
         
-        // Hide success message after 5 seconds
+        // Ocultar mensaje de éxito después de 5 segundos
         setTimeout(() => {
           successMsg.style.display = 'none';
         }, 5000);
-      })
-      .catch(error => {
-        console.error('Error enviando formulario:', error);
+      } catch (error) {
+        console.error('Error detallado:', {
+          message: error.message,
+          name: error.name,
+          stack: error.stack,
+          details: error
+        });
         
-        // Fallback: Send email using EmailJS service
-        sendWithEmailJS(formData);
-      });
+        let errorMessage = 'Hubo un problema al enviar el formulario. ';
+        
+        // Mensajes de error más específicos
+        if (error.message.includes('quota')) {
+          errorMessage += 'Se ha excedido el límite de envíos. ';
+        } else if (error.message.includes('network')) {
+          errorMessage += 'Hay un problema de conexión. ';
+        } else if (error.message.includes('template')) {
+          errorMessage += 'Hay un problema con la plantilla de email. ';
+        }
+        
+        errorMessage += 'Por favor, contáctanos directamente a aiventureanalytics@gmail.com';
+        
+        showError(errorMessage);
+        loadingMsg.style.display = 'none';
+      }
     });
-    
-    // Fallback function using EmailJS
-    function sendWithEmailJS(formData) {
-      // For now, we'll just show success and log the data
-      console.log('Fallback: Datos que se enviarían:', Object.fromEntries(formData));
-      
-      // You can implement EmailJS here if needed
-      loadingMsg.style.display = 'none';
-      successMsg.style.display = 'block';
-      form.reset();
-      
-      setTimeout(() => {
-        successMsg.style.display = 'none';
-      }, 5000);
-      
-      // Send alert to user about manual contact
-      setTimeout(() => {
-        alert('Formulario enviado. Si no recibes respuesta en 24 horas, contáctanos directamente a aiventureanalytics@gmail.com');
-      }, 2000);
-    }
-    
-    // Test function - you can call this in console to debug
-    window.testForm = function() {
-      console.log('Testing form elements...');
-      console.log('Form:', document.getElementById('contactForm'));
-      console.log('Name field:', document.getElementById('name'));
-      console.log('Email field:', document.getElementById('email'));
-      console.log('Phone field:', document.getElementById('phone'));
-      console.log('Clinic field:', document.getElementById('clinic'));
-      console.log('Interest field:', document.getElementById('interest'));
-      console.log('Message field:', document.getElementById('message'));
-    };
   </script>
 
   <!-- JS PARA MENÚ HAMBURGUESA -->
