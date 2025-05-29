@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  
   <!-- SEO Meta Tags -->
   <title>AVA - Inteligencia Artificial para Clínicas Dentales | AI Venture Analytics</title>
   <meta name="description" content="AVA automatiza tu clínica dental con IA: agenda citas 24/7, recordatorios inteligentes, integración Dentalink. Aumenta 40% más citas y reduce 70% ausencias. ¡Prueba gratis!">
@@ -39,6 +48,20 @@
   <link rel="preload" href="css/style.css" as="style">
   <link rel="preload" href="img/AI_VENTURE_ANALYTICS-removebg-preview.png" as="image">
   
+  <!-- Performance Optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <style>
+    .lazy-image {
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .lazy-image.loaded {
+      opacity: 1;
+    }
+  </style>
+
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- Enhanced Structured Data -->
@@ -80,7 +103,11 @@
   <!-- HEADER -->
   <header class="header">
     <a href="index.html" class="logo-container">
-      <img src="img/AI_VENTURE_ANALYTICS-removebg-preview.png" alt="AVA - Inteligencia Artificial para Clínicas Dentales, AI Venture Analytics Logo" class="logo">
+      <img src="img/AI_VENTURE_ANALYTICS-removebg-preview.png" 
+           alt="AVA - Inteligencia Artificial para Clínicas Dentales, AI Venture Analytics Logo" 
+           class="logo"
+           width="32" 
+           height="40">
       <span class="logo-text">AVA</span>
     </a>
     
@@ -92,7 +119,7 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="beneficios.html">Beneficios IA</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
         <li><a href="contacto.html">Contacto</a></li>
         <li><a href="http://146.190.49.33:3006/login" class="btn-login">Log in</a></li>
       </ul>
@@ -351,7 +378,7 @@
           <nav class="footer-nav">
             <a href="index.html">Inicio</a>
             <a href="pricing.html">Pricing</a>
-            <a href="beneficios.html">Beneficios</a>
+            <a href="noticias.html">Noticias</a>
             <a href="contacto.html">Contacto</a>
           </nav>
         </div>
