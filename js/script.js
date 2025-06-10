@@ -75,7 +75,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for animation
-const animateElements = document.querySelectorAll('.feature-card, .solution-card, .hero-stats .stat');
+const animateElements = document.querySelectorAll('.feature-card, .solution-card, .hero-stats .stat, .results-cta');
 animateElements.forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
